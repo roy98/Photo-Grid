@@ -9,6 +9,7 @@ export default function SingleImage({ src, handleOpenLightbox }: SinglePhotoProp
 			width={'400px'}
 			height={'400px'}
 			onClick={handleOpenLightbox}
+			data-testid={'single-image'}
 		/>
 	)
 }

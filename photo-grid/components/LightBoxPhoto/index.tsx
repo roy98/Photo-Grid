@@ -27,7 +27,7 @@ export default function LightboxPhoto({
 					setLoading(true)
 				}}
 				imagePadding={60}
-				imageTitle={`${user.name} ${user.portfolio_url ? '- ' + user.portfolio_url : ''}`}
+				imageTitle={`${user?.name} ${user?.portfolio_url ? '- ' + user.portfolio_url : ''}`}
 				imageCaption={`${description ? description + ' - ' : ''} ${
 					likes ? 'Likes: ' + likes : ''
 				} ${downloads ? ' - Dowloads: ' + downloads : ''}`}
