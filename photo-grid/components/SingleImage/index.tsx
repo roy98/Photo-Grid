@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { SinglePhotoProps } from '../../utils/types'
+import { SinglePhotoProps } from '@/utils/types'
 
 export default function SingleImage({ src, handleOpenLightbox }: SinglePhotoProps) {
 	return (

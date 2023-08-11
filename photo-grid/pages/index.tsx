@@ -1,15 +1,15 @@
 import useSWRInfinite from 'swr/infinite'
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import SingleImage from '../components/SingleImage'
-import Loader from '../components/Loader'
-import Header from '../components/Header'
-import Error from '../components/Error'
-import LighBoxPhoto from '../components/LightBoxPhoto'
+import styles from '@/styles/Home.module.css'
+import SingleImage from '@/components/SingleImage'
+import Loader from '@/components/Loader'
+import Header from '@/components/Header'
+import Error from '@/components/Error'
+import LighBoxPhoto from '@/components/LightBoxPhoto'
 import InfiniteScroll from 'react-infinite-scroll-component'
-import { fetcher, getKey } from '../utils/method'
+import { fetcher, getKey } from '@/utils/method'
 import { useState } from 'react'
-import { LightboxProps } from '../utils/types'
+import { LightboxProps } from '@/utils/types'
 
 export default function Home() {
 	const { data, error, size, setSize } = useSWRInfinite(getKey, fetcher)

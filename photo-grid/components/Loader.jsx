@@ -1,5 +1,5 @@
 import { Bars } from 'react-loader-spinner'
-import styles from '../styles/common.module.css'
+import styles from '@/styles/common.module.css'
 
 export default function Loader() {
 	return (
