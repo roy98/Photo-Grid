@@ -9,15 +9,39 @@
 .header {
 	display: flex;
 	flex: 1;
-	padding: 2rem 0;
+	padding: 0.5rem 0;
 	border-bottom: 1px solid #eaeaea;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.appName {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 700;
+	font-size: larger;
+}
+
+.logoContainer {
+	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.logo {
+	margin-left: 0.5rem;
+}
+
+.header a {
+	text-decoration: underline;
+	color: blue;
 }
 
 @media (prefers-color-scheme: dark) {
 	.header {
 		border-color: #222;
+	}
+	.header a {
+		color: #0eded9;
 	}
 }
 
