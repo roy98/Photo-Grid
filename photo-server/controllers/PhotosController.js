@@ -12,7 +12,7 @@ mongoose.set('useFindAndModify', false)
 exports.photos = [
 	async function (req, res) {
 		const page = (req.query.page && req.query.page > 0 ? req.query.page - 1 : 0) || 0
-		const per_page = Number(req.query.per_page)
+		const per_page = Number(req.query.per_page) || 10
 
 		PhotoModel.find()
 			.skip(page * per_page)
