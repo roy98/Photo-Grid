@@ -6,6 +6,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { getPhotoFromUnsplash } from '../utils/method'
 import SingleImage from '../components/SingleImage'
+import { Bars } from 'react-loader-spinner'
 
 const getKey = (pageIndex, previousPageData) => {
 	if (previousPageData && !previousPageData.length) return null // reached the end
@@ -16,8 +17,18 @@ const fetcher: Fetcher<string[]> = (...args: any) => getPhotoFromUnsplash(args)
 
 export default function Home() {
 	const { data, error, isValidating, size, setSize } = useSWRInfinite(getKey, fetcher)
-
 	const images: Array<any> = data ? [].concat(...data) : []
+
+	const isLoadingInitialData = true || (!data && !error)
+	const isLoadingMore = size > 0 && data && typeof data[size - 1] === 'undefined'
+
+	if (isLoadingInitialData) {
+		return (
+			<div className={styles.loaderContainer}>
+				<Bars height='80' width='80' visible color='#640aa1' ariaLabel='Loader' />
+			</div>
+		)
+	}
 
 	return (
 		<div className={styles.container}>
