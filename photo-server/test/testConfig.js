@@ -1,7 +1,5 @@
 //During the automated test the env variable, We will set it to "test"
 process.env.NODE_ENV = 'test'
-process.env.MONGODB_URL =
-	'mongodb+srv://falcon:KYDaAcBNDyaDRI8z@cluster0.fw2ek.mongodb.net/?retryWrites=true&w=majority'
 
 //Require the dev-dependencies
 let chai = require('chai')
