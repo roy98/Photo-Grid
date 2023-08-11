@@ -5,14 +5,25 @@ import SingleImage from '../components/SingleImage'
 import Loader from '../components/Loader'
 import Header from '../components/Header'
 import Error from '../components/Error'
+import LighBoxPhoto from '../components/LightBoxPhoto'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { fetcher, getKey } from '../utils/method'
+import { useState } from 'react'
+import { LightboxProps } from '../utils/types'
 
 export default function Home() {
 	const { data, error, size, setSize } = useSWRInfinite(getKey, fetcher)
 	const images: Array<any> = data ? [].concat(...data) : []
+	const [isLightBoxOpen, setIsLightBoxOpen] = useState<boolean>(false)
+	const [currentPhoto, setCurrentPhoto] = useState<LightboxProps>(null)
 
 	const isLoadingInitialData = !data && !error
+
+	const onOpenLightBox = (index: number) => {
+		const selectedPhoto = images[index]
+		setCurrentPhoto({ ...selectedPhoto })
+		setIsLightBoxOpen(true)
+	}
 
 	if (error) {
 		return <Error />
@@ -39,10 +50,20 @@ export default function Home() {
 				<main className={styles.main}>
 					{images &&
 						images.map((image: any, index: number) => (
-							<SingleImage url={image.urls?.regular} key={`${image?.id} + ${index}`} />
+							<SingleImage
+								src={image.urls}
+								key={`${image?.id} + ${index}`}
+								handleOpenLightbox={() => onOpenLightBox(index)}
+							/>
 						))}
 				</main>
 			</InfiniteScroll>
+
+			<LighBoxPhoto
+				{...currentPhoto}
+				isOpen={isLightBoxOpen}
+				handleClose={() => setIsLightBoxOpen(false)}
+			/>
 		</div>
 	)
 }
