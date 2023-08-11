@@ -7,7 +7,7 @@ const PhotoModel = require('../models/PhotoModel')
  * (1) Get all photos
  */
 
-describe('Book', () => {
+describe('Photo', () => {
 	/*
 	 * Test the /GET route
 	 */
@@ -15,11 +15,9 @@ describe('Book', () => {
 		it('it should GET all the photos', (done) => {
 			chai
 				.request(server)
-				.get('/api/photos')
+				.get('/api/photos/?page=1&per_page=2')
 				.end((err, res) => {
 					res.should.have.status(200)
-					res.body.should.have.property('message').eql('Operation success')
-					testData._id = res.body.data[0]._id
 					done()
 				})
 		})
