@@ -4,7 +4,7 @@ import { SinglePhotoProps } from '@/utils/types'
 export default function SingleImage({ src, handleOpenLightbox }: SinglePhotoProps) {
 	return (
 		<Image
-			src={src.regular}
+			src={src?.regular}
 			objectFit='cover'
 			width={'400px'}
 			height={'400px'}

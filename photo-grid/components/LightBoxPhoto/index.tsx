@@ -16,13 +16,13 @@ export default function LightboxPhoto({
 	return (
 		isOpen && (
 			<Lightbox
-				mainSrc={urls.full}
+				mainSrc={urls?.full}
 				onCloseRequest={() => {
 					setLoading(false)
 					handleClose()
 				}}
 				enableZoom={false}
-				mainSrcThumbnail={urls.thumbnail}
+				mainSrcThumbnail={urls?.thumbnail}
 				onImageLoad={() => {
 					setLoading(true)
 				}}
