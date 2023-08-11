@@ -18,3 +18,7 @@
 .main > span:nth-of-type(1) {
 	grid-row-end: span 1;
 }
+
+.main > span img:hover {
+	cursor: pointer;
+}
