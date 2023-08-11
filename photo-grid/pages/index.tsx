@@ -6,6 +6,7 @@ import { getPhotoFromUnsplash } from '../utils/method'
 import SingleImage from '../components/SingleImage'
 import Loader from '../components/Loader'
 import Header from '../components/Header'
+import Error from '../components/Error'
 import InfiniteScroll from 'react-infinite-scroll-component'
 
 const getKey = (pageIndex, previousPageData) => {
@@ -16,10 +17,14 @@ const getKey = (pageIndex, previousPageData) => {
 const fetcher: Fetcher<string[]> = (...args: any) => getPhotoFromUnsplash(args)
 
 export default function Home() {
-	const { data, error, isValidating, size, setSize } = useSWRInfinite(getKey, fetcher)
+	const { data, error, size, setSize } = useSWRInfinite(getKey, fetcher)
 	const images: Array<any> = data ? [].concat(...data) : []
 
 	const isLoadingInitialData = !data && !error
+
+	if (error) {
+		return <Error />
+	}
 
 	return (
 		<div className={styles.container}>
@@ -41,7 +46,9 @@ export default function Home() {
 			>
 				<main className={styles.main}>
 					{images &&
-						images.map((image: any) => <SingleImage url={image.urls?.regular} key={image?.id} />)}
+						images.map((image: any, index: number) => (
+							<SingleImage url={image.urls?.regular} key={`${image?.id} + ${index}`} />
+						))}
 				</main>
 			</InfiniteScroll>
 		</div>

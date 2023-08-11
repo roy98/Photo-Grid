@@ -20,3 +20,22 @@
 		border-color: #222;
 	}
 }
+
+.errorContainer {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	padding: 2rem;
+}
+
+.errorContainer p {
+	text-align: center;
+}
+
+.errorContainer button {
+	padding: 0.5rem 2rem;
+	cursor: pointer;
+}
