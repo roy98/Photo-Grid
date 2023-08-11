@@ -23,7 +23,8 @@ Refer to docs how to deploy Next.js app to vercel: https://vercel.com
 ### Extra Points:
  - Extra points if you use Typescript.
  - When the user taps on a photo on the grid it should show the full photo in a full width lightbox popup with more information about the photo.
- -  The lightbox popup should be dismissible with a close button.
+ - The lightbox popup should be dismissible with a close button.
+ - Big bonus for full stack developers: Build photos table and an API endpoint, and consume it fro the front-end layer instead of unsplash. You can build it with either MongoDB, Node and express; or .NET stack SQL Server, and ASP.NET.   
 
 ### Evaluation:
 - [ ] The app should build without errors (typically using `npm run build`). If there are necessary steps required to get it to compile, those should be covered in README.md.
