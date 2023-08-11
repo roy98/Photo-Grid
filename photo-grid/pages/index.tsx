@@ -1,20 +1,12 @@
 import useSWRInfinite from 'swr/infinite'
-import { Key, Fetcher } from 'swr'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import { getPhotoFromUnsplash } from '../utils/method'
 import SingleImage from '../components/SingleImage'
 import Loader from '../components/Loader'
 import Header from '../components/Header'
 import Error from '../components/Error'
 import InfiniteScroll from 'react-infinite-scroll-component'
-
-const getKey = (pageIndex, previousPageData) => {
-	if (previousPageData && !previousPageData.length) return null // reached the end
-	return `/photos?page=${pageIndex + 1}&per_page=10` // SWR key
-}
-
-const fetcher: Fetcher<string[]> = (...args: any) => getPhotoFromUnsplash(args)
+import { fetcher, getKey } from '../utils/method'
 
 export default function Home() {
 	const { data, error, size, setSize } = useSWRInfinite(getKey, fetcher)
