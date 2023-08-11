@@ -67,3 +67,15 @@ Press CTRL + C to stop the process.
 ```bash
 npm test
 ```
+
+### Online API Address
+
+[https://photo-grid-api.herokuapp.com/]('https://photo-grid-api.herokuapp.com/')
+
+```bash
+    ## Endpoint:
+        - /api/photos/
+    ## Params
+        - page : `Current page`
+        - per_page: `Number of photo per page. Default 10`
+```
